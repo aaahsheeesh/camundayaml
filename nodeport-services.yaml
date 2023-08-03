@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: camunda-identity-service
+spec:
+  selector:
+    app: camunda-identity
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+
+---
+# Repeat the above block for other components (operate, optimize, tasklist)
+# Make sure to adjust the app label and targetPort accordingly.
