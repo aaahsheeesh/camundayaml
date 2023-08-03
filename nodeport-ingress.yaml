@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: camunda-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /auth/realms/camunda-platform
+            pathType: Prefix
+            backend:
+              service:
+                name: camunda-identity-service
+                port:
+                  number: 80
+          # Repeat the above block for other components
